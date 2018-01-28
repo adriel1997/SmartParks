@@ -62,40 +62,10 @@ else
             public void onClick(View v) {
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 final DatabaseReference myRef = database.getReference("LOCATION/"+s.getSelectedItem().toString());
-                Query query = myRef.orderByChild("ALLOTED").equalTo("NULL").limitToFirst(1);
-
-query.addListenerForSingleValueEvent(new ValueEventListener() {
-    @Override
-    public void onDataChange(DataSnapshot dataSnapshot) {
-        for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-            slot =childDataSnapshot.getKey();
-            q=""+ myRef.child(slot).child("ALLOTED").setValue(Plateno.getText().toString());
-            w=""+ myRef.child(slot).child("DATE").setValue(sDate);
-            e= ""+myRef.child(slot).child("TIME").setValue(time);
-            r=""+ myRef.child(slot).child("LIMIT").setValue(limit.getSelectedItem().toString());
-            break;
-        }
-        if(slot!=null) {
-            Toast.makeText(getApplicationContext(), "SPACE ALLOTED" + slot, Toast.LENGTH_LONG).show();
-            Intent p = new Intent(book.this, Confirmpage.class);
-            p.putExtra("plat", plate);
-            p.putExtra("all", slot);
-            p.putExtra("date", sDate);
-            p.putExtra("time", time);
-            p.putExtra("lim", limit.getSelectedItem().toString());
-            p.putExtra("loc", s.getSelectedItem().toString());
-            startActivity(p);
-        }
-        else
-            Toast.makeText(getApplicationContext(), " NO SPACE ALLOTED", Toast.LENGTH_LONG).show();
-}
-
-    @Override
-    public void onCancelled(DatabaseError databaseError) {
-
-    }
-});
-            }
-        });
+            
+			
+			//contact at github @adriel1997 for complete code
+			
+			
     }
 }

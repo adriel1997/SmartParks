@@ -37,30 +37,15 @@ String s;
             @Override
             public void onClick(View view) {
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference myRef = database.getReference("USERS");
-                Query query = myRef.orderByChild(plat.getText().toString());
+             
 
 
-                query.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                            name.setText("Name: "+childDataSnapshot.child("NAME").getValue());
-                            model.setText("Model:   "+childDataSnapshot.child("MODEL").getValue());
-                            phone.setText("Phone:   "+childDataSnapshot.child("PHONE").getValue());
-                            email.setText("Email:   "+childDataSnapshot.child("EMAIL").getValue());
-                        s=""+childDataSnapshot.child("PHONE").getValue();
-                            con.setEnabled(true);
-                        }
-                    }
+			 //contact me on github @adriel1997
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(getApplicationContext(), "NO SPACE AVAILABLE", Toast.LENGTH_LONG).show();
-                    }
-                });
 
-            }
+
+
+			 }
         });
         con.setOnClickListener(new View.OnClickListener() {
             @Override
